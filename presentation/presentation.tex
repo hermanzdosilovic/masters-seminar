@@ -1,0 +1,64 @@
+\documentclass{beamer}
+
+\usepackage[croatian]{babel}
+\usepackage[numbers, square]{natbib}
+\usepackage[utf8]{inputenc}
+\usepackage{courier}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{relsize}
+
+\newcommand{\engl}[1]{(engl.~\emph{#1})}
+\setbeamertemplate{caption}[numbered]
+\usetheme{Boadilla}
+
+\renewcommand{\lstlistingname}{Isječak}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\title[Seminar]{Sustavi za upravljanje heterogenom flotom ljudi i robota u logističkim centrima}
+\author[Herman Zvonimir Došilović]{Herman Zvonimir Došilović\\ Voditelj: \textit{prof. dr. sc. Domagoj Jakobović}}
+\institute[FER]{Sveučilište u Zagrebu\\ Fakultet elektrotehnike i računarstva}
+\date{Zagreb, travanj 2019.}
+\logo{\includegraphics[height=1.0cm]{images/logo.png}}
+
+\begin{document}
+
+\lstset{
+    basicstyle=\linespread{1.2}\ttfamily\scriptsize,
+    keepspaces=true,
+    numbers=left,
+    frame=single,
+    showspaces=false,
+    numberstyle=\ttfamily,
+    columns=flexible,
+    extendedchars=true,
+    inputencoding=utf8,
+    literate={®}{{\textregistered}}1,
+    xleftmargin=.2\textwidth,
+    xrightmargin=.2\textwidth,
+}
+
+\frame{\titlepage}
+
+\begin{frame}
+\frametitle{Sadržaj}
+\tableofcontents
+\end{frame}
+
+\section{Uvod}
+\begin{frame}
+\frametitle{Uvod}
+\end{frame}
+
+\section{Zaključak}
+\begin{frame}
+\frametitle{Zaključak}
+\end{frame}
+
+\begin{frame}
+\frametitle{Literatura}
+\bibliography{literatura}
+\bibliographystyle{fer}
+\end{frame}
+
+\end{document}
