@@ -43,24 +43,24 @@
 Logistički centri su dinamički i stohastički logistički sustavi
 čija je temeljna zadaća prostornovremenska transformacija
 dobara koja se odvija u procesima: (1) transporta, pregrupiranja i skladištenja gdje
-su bitni procesi tokova dobara. (2) Pakiranja i signiranja gdje su bitni procesi
-pomaganja tokovima dobara. (3) Dostavljanja i obrada naloga gdje su bitni procesi
-tijekova informacija. \citep{Paladin, buntak2012medjusobni}
+su bitni procesi tokova dobara; (2) pakiranja i signiranja gdje su bitni procesi
+pomaganja tokovima dobara; (3) dostavljanja i obrada naloga gdje su bitni procesi
+tijekova informacija \citep{Paladin, buntak2012medjusobni}.
 
 Razvojem informacijskih tehnologija elektroničko trgovanje \engl{ecommerce}
  posljednjih je godina
 doživjelo veliki zamah u razvoju i poslovanju. Međutim, sa sve većim brojem narudžbi,
-logistički procesi elektroničkog trgovanja postaju usko grlo 
+logistički procesi elektroničkog trgovanja postaju usko grlo
 za ispunjenje narudžbi i njihovih rokova. Također, logistički procesi mogu uzrokovati
-probleme poput sporih, neispravnih, izgubljenih, oštećenih i pogrešnih isporuka. 
+probleme poput sporih, neispravnih, izgubljenih, oštećenih i pogrešnih isporuka.
 Pored toga, cijena logističkog procesa može iznositi
 i do 40\% cijene korisnikove narudžbe.
 Automatizacija logističkih procesa nudi poboljšanja učinkovitosti, smanjenje troškova
-i smanjenje vremena posluživanja, međutim, velika raznolikost i promjenljivost
+i smanjenje vremena posluživanja. Međutim, velika raznolikost i promjenljivost
 narudžbi čini implementaciju automatizacije teškom. U obzir treba uzeti
-ne samo tip i količinu neke naručene robe, nego i njihovu veličinu, njihov 
+ne samo tip i količinu neke naručene robe, nego i njihovu veličinu, njihov
 oblik, masu, pa čak i svojstva i posebnosti pakiranja. Također, jednom
-uspostavljeni automatizirani proces mora se moći lako prilagoditi 
+uspostavljeni automatizirani proces mora se moći lako prilagoditi
 raznim promjenama u logističkom centru. To znači da se automatizirani sustavi
 moraju lako skalirati i da moraju biti fleksibilni u svakom trenutku.
 Kada govorimo o automatizaciji logističkih procesa elektroničkih trgovina, onda
@@ -71,7 +71,7 @@ preciznosti i tereta. Robotika, također, nudi rješenje koje će
 poboljšati učinkovitost, skalabilnost i fleksibilnost logističkih procesa.
 Mobilni roboti omogućuju automatizirano izvršavanje zadataka na pozicijama
 koje nisu više fiksne, međutim, tada je potrebno uskladiti suradnju između robota
-i ljudi. \citep{huang2015robotics}
+i ljudi \citep{huang2015robotics}.
 
 \pagebreak
 
@@ -79,7 +79,7 @@ Ovaj seminarski rad predstavit će i definirat će jedan stvarni problem koji
 se pojavljuje uvođenjem mobilnih i autonomnih robota u logističke centre kako bi se
 optimirala jedna faza logističkog procesa koja uključuje prikupljanje
 artikala narudžbe, a odnosi se na upravljanje heterogenom flotom ljudi i robota.
-Osim toga, napravit će se pregled područja i 
+Osim toga, napravit će se pregled područja i
 metoda koje rješavaju sličan problem.
 
 \chapter{Formalan opis problema}
@@ -95,45 +95,46 @@ paleta s teretom.
 \begin{figure}[htb]
     \centering
     \includegraphics[height=9cm]{images/robot-01.jpg}
-    \caption{Autonomni mobilni robot hrvatske tvrtke Gideon Brothers. \citep{Gideon:Logisticsrobotlingo}}
+    \caption{Autonomni mobilni robot hrvatske tvrtke Gideon Brothers \citep{Gideon:Logisticsrobotlingo}.}
     \label{fig:robot-01}
 \end{figure}
 
 \pagebreak
 
-U sustav za upravljanje heterogenom flotom ljudi i robota 
+U sustav za upravljanje heterogenom flotom ljudi i robota
 (u daljnjem tekstu: \emph{Sustav}) narudžbe dolaze stohastički iz
 sustava za upravljanje skladištem \engl{Warehouse Management System}.
-Svaka narudžba sadrži više artikala i za svaki artikl je poznata njegova lokacija u skladištu.
-Sustav \emph{WMS} također određuje kojim redosljedom je potrebno prikupiti artikle kako bi
+Svaka narudžba sadrži više artikala i za svaki artikl poznata je njegova lokacija u skladištu.
+Sustav \emph{WMS} također određuje kojim redoslijedom je potrebno prikupiti artikle kako bi
 se narudžba izvršila.
 
 Na početku svoga rada, robot odlazi do jedne od pozicija za preuzimanje praznih
-paleta. Nakon što je preuzeo praznu paletu robot (slika \ref{fig:robot-02}), može započeti prikupljanje artikala (unaprijed 
-određenim redosljedom) samo jedne narudžbe. Kada
-je prikupio sve artikle koji pripadaju narudžbe, robot odlazi do jedne od pozicija za odlaganje punih paleta i
+paleta. Nakon što je preuzeo praznu paletu (slika \ref{fig:robot-02}), robot može započeti prikupljanje artikala (unaprijed
+određenim redoslijedom) samo jedne narudžbe.
+Kada robot dođe do pozicije na kojoj se nalazi artikl, čovjek stavlja taj artikl na robota.
+Ljudi poslužuju robote, a roboti izvršavaju narudžbe. Jedan čovjek može posluživati više robota,
+međutim, ne istovremeno.
+Kada
+je prikupio sve artikle koji pripadaju narudžbi, robot odlazi do jedne od pozicija za odlaganje punih paleta i
 tamo odlaže paletu. Nakon odlaganja pune palete, smatra se da je robot izvršio narudžbu i da
 je spreman za izvršavanje nove nakon što ponovo preuzme praznu paletu na jednoj od za to predviđenih
 pozicija.
-Prvi zadatak sustava je da odredi koji robot će izvršiti koju narudžbu.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[height=9cm]{images/robot-02.jpg}
-    \caption{Robot s praznom paletom. Može započeti izvršavati narudžbu. \citep{Gideon:PollDebunks}}
+    \caption{Robot s praznom paletom, koji može započeti izvršavati narudžbu. \citep{Gideon:PollDebunks}}
     \label{fig:robot-02}
 \end{figure}
 
-Kada robot dođe do pozicije na kojoj se nalazi artikl, čovjek stavlja taj artikl na robota.
-Ljudi poslužuju robote, a roboti izvršavaju narudžbe. Jedan čovjek može posluživati više robota,
-međutim, ne istovremeno. Drugi zadatak sustava je da odredi koji čovjek će poslužiti kojeg robota
+Prvi zadatak sustava je da odredi koji robot će izvršiti koju narudžbu.
+Drugi zadatak sustava je da odredi koji čovjek će poslužiti kojeg robota
 i za koji artikl.
-
-Teža inačica ovog problema uključuje i određivanje redosljeda kojim je potrebno pokupiti
+Teža inačica ovog problema uključuje i određivanje redoslijeda kojim je potrebno pokupiti
 artikle pojedine narudžbe. Formalan opis stanja skladišta i ulaz u sustav bit će takav da će
 sadržiti sve potrebne informacije kako bi se mogla riješiti i ova teža inačica problema.
 
-\section{Formalna definicija heterogene flote i skladišta}
+\section{Definicija heterogene flote i skladišta}
 
 Heterogena flota sastoji se od $N_p$ ($1 \le N_p \le 25$) ljudi i
  $N_r$ ($1 \le N_r \le 50$) robota,
@@ -144,7 +145,7 @@ Skladište se može prikazati kao skup točaka:
 S = \left\{(x, y)\ |\ x, y \in \mathbb{N}\ \land\ 1 \le x \le W\ \land\ 1 \le y \le L\right\},
 \end{equation}
 
-gdje stvarna (fizička) udaljenost između dvije susjedne horizontalne, odnosno vertikalne točke 
+gdje stvarna (fizička) udaljenost između dvije susjedne horizontalne, odnosno vertikalne točke
 iznosi $5\ cm$, što znači da je maksimalna površina skladišta
 $\sim5000\ m^2$.
 
@@ -158,9 +159,7 @@ U nastavku formalne definicije problema koristit će se sljedeće oznake:
 
 Ovakve oznake dozvoljavaju npr\text{.} označavanje vremenske udaljenosti $d_m(R_3, M_4)$ koja
 predstavlja vrijeme koje je potrebno čovjeku da od robota $R_3$ dođe do čovjeka
-$M_4$ (i obrnuto). Navedena udaljenost može se interpretirati i kao vrijeme koje
-je potrebno čovjeku $M_4$ da dođe do robota $R_3$.
-
+$M_4$ (i obrnuto).
 U nastavku ovog seminara, sve spomenute udaljenosti predstavljaju vremenske udaljenosti (u sekundama) između
 dvije točke. Također, za udaljenosti $d_m$ i $d_r$ vrijedi:
 \begin{equation}
@@ -171,44 +170,47 @@ Skup $P$ ($|P| \le 10$) označava skup svih pozicija za preuzimanje praznih pale
 a skup $D$ ($|D| \le 10$) označava skup svih pozicija za odlaganje punih paleta. Pretpostavlja
 se da roboti u bilo kojem trenutku mogu preuzeti praznu paletu s bilo koje pozicije $P_i$.
 Također, pretpostavlja se da roboti u bilo kojem trenutku mogu odložiti punu paletu na bilo
-koju poziciju $D_i$.
+koju poziciju $D_i$. Uz skupove $P$ i $D$, oznake $T_p$ i $T_d$ označavaju
+vrijeme koje je potrebno da robot preuzme, odnosno odloži paletu s
+odgovarajuće pozicije.
 
 \pagebreak
 
-\section{Formalna definicija artikala i narudžbe}
+\section{Definicija artikala i narudžbe}
 Skup svih artikala $I$ zapravo je skup svih pozicija na kojima se artikli nalaze:
 \begin{equation}
 I = \left\{A, A \in S\right\}.
 \end{equation}
-$I_i$ ($0 \le i < |I|$) označava i-ti artikl u skupu $I$. 
+$I_i$ ($0 \le i < |I|$) označava i-ti artikl u skupu $I$.
 
 Narudžba $O_k$ definirana
-je kao skup dvojki $(i, t_{i})$, gdje je $t_{i}$ vrijeme koje je potrebno 
-da čovjek stavi artikl $I_i$ na robota kada robot izvršava narudžbu $O_k$.
+je kao skup dvojki $(i, t_{i})$, gdje je $t_{i}$ vrijeme koje je potrebno
+da čovjek stavi artikl $I_i$ na robota kada robot izvršava narudžbu $O_k$:
 \begin{equation}
-O_k = \left\{ (i, t_{i})\ |\ i \in 2^{[0, 1, ..., |I|-1]}\backslash\left\{\emptyset\right\},\ t_{i} \in \mathbb{R}_{\ge0}\right\}
-\end{equation}.
+O_k = \left\{ (i, t_{i})\ |\ i \in 2^{\left\{0, 1, ..., |I|-1\right\}}\backslash\left\{\emptyset\right\},\ t_{i} \in \mathbb{R}_{\ge0}\right\}.
+\end{equation}
 
 $O_{k, i}$ ($0 \le i < |O_k|$) označava i-ti artikl u k-toj narudžbi, a $T_{k, i}$ označava
 vrijeme $t_i$ za artikl $O_{k, i}$. Maksimalan broj artikala po narudžbi
 je $500$, odnosno vrijedi $1 \le |O_k| \le 500$. Narudžbe u sustav dolaze stohastički
 i skup svih narudžbi $O$ koje je potrebno izvršiti može teoretski rasti do beskonačnosti,
-međutim, sustav uzima u obzir prvih $100$ narudžbi koje nisu još izvršene. Jednom kada 
+međutim, sustav uzima u obzir prvih $100$ narudžbi koje nisu još izvršene. Jednom kada
 je narudžba izvršena, ona se izbacuje iz skupa svih narudžbi $O$. Dakle, bez smanjenja općenitosti
 može se pretpostaviti da vrijedi $1 \le |O| \le 100$.
 
 Nakon ovako definiranih narudžbi uvode se još dvije oznake:
 \begin{itemize}
     \item[$\bullet$] $R_{i}^{o}$ ($R_{i}^{o} \in [-1, 0, 1, ..., |O| - 1]$) - označava koju narudžbu
-                     robot $R_i$ izvršava ($-1$ ako ne izvršava niti jednu).
+                     robot $R_i$ trenutno izvršava ($-1$ ako ne izvršava niti jednu).
     \item[$\bullet$] $R_{i}^{p}$ ($R_{i}^{p} \in \left\{0, 1, 2\right\}$) - označava status palete
                      koja se nalazi na robotu ($0$ ako robot ne nosi paletu, $1$ ako nosi praznu paletu, $2$ ako nosi paletu s teretom).
 \end{itemize}
 
-\section{Formalan opis stanja skladišta}
+\section{Opis stanja skladišta}
 Stanje skladišta može se opisati sljedećim varijablama:
 \begin{itemize}
     \item[$\bullet$] skup svih pozicija za preuzimanje praznih paleta $P$ i odlaganje punih paleta $D$,
+    \item[$\bullet$] vrijeme $T_p$ i $T_d$,
     \item[$\bullet$] skup svih robota $R$ i odgovarajućih vrijednosti $R_{i}^{o}$ i $R_{i}^{p}$ za svakog robota,
     \item[$\bullet$] skup svih ljudi $M$,
     \item[$\bullet$] skup svih artikala $I$,
@@ -260,11 +262,11 @@ međutim, skup svih artikala u pojedinoj narudžbi jednak je skupu svih artikala
 koji još moraju biti pokupljeni. Tako se točno zna koji će idući artikl robot trebati
 uzeti ako je u stanju sustava naznačeno da on trenutno izvršava neku narudžbu. Međusobne
 udaljenosti \ref{state-set-01} stanja skladišta omogućuju da se za robota izračuna ukupno vrijeme
-trajanja obilaska artikala za pojedinu narudžbu i proizvoljno odabran redosljed. Udaljenosti
+trajanja obilaska artikala za pojedinu narudžbu i proizvoljno odabran redoslijed. Udaljenosti
 \ref{state-set-02} omogućuju da se za svakog robota koji ne izvršava neku narudžbu odredi
 koju iduću narudžbu bi mogao izvršiti i koji će mu biti početni artikl (teža inačica problema).
 Osim toga, udaljenosti \ref{state-set-02} omogućuju da se robotima koji trenutno izvršavaju
-narudžbu promjeni redosljed prikupljanja artikala (teža inačica problema).
+narudžbu promjeni redoslijed prikupljanja artikala (teža inačica problema).
 
 \section{Ulazni podaci}
 Ulazni podaci u sustav predstavljaju formatirano stanje skladišta koje je formalno opisano u prethodnom odjeljku.
@@ -279,16 +281,23 @@ Od sustava se očekuje da za svakog robota odredi narudžbe koje će izvršiti. 
 takva da svaka narudžba ima dodjeljenog robota koji će ju izvršiti. Osim toga, od sustava se očekuje
 da za svakog čovjeka odredi koji će artikl staviti i na kojeg robota. Odluka sustava mora biti
 takva da svaki artikl u svakoj narudžbi ima dodjeljenog čovjeka koji će taj artikl staviti na robota.
+U težoj inačici problema potrebno je odrediti i redoslijed kojim
+će robot prikupiti artikle neke narudžbe.
 
 \section{Ocjena kvalitete}
 Na temelju odluke sustava gradi se raspored čija kvaliteta \engl{fitness} je tim
-veća što je prosječno vrijeme izvršavanje narudžbe manje.
+veća što je prosječno vrijeme izvršavanje narudžbe manje. Ako s
+$t_{s, i}$ označimo vrijeme početka izvršavanja narudžbe $i$, a s $t_{e, i}$
+vrijeme završetka izvršavanja narudžbe $i$, onda je prosječno vrijeme izvršavanja
+narudžbe jednako:
+\begin{equation}
+    \overline{T} = \sum_{i = 0}^{|O| - 1}{t_{e, i} - t_{s, i}},
+\end{equation}
+a kvaliteta rasporeda $f$ jednaka je $f = \overline{T}^{-1}$. Cilj je
+pronaći takav raspored koji će minimizirati $\overline{T}$, odnosno
+maksimizirati $f$.
 
 \chapter{Raspoređivanje}
-
-\section{Raspoređivanje na nesrodnim strojevima}
-
-\section{Ocjene kvalitete rasporeda}
 
 \chapter{Zaključak}
 
