@@ -400,21 +400,62 @@ olb, met, mct, min-min, max-min, duplex, sufferage, ljrf-sjrf, min-max i
 min-mean.
 
 \chapter{Raspoređivanje heterogene flote}
+U radu \citep{dhiflaoui2018dual} spomenuta su još dva modela problema raspoređivanja koja
+bi se mogli povezati s problemom opisanim u drugom poglavlju:
+\begin{itemize}
+    \item[$\bullet$] \textbf{Dual-Resource Constrained Job shop Scheduling problem} (DRCJSP) i,
+    \item[$\bullet$] \textbf{Dual-Resource Constrained Flexible Job shop Scheduling problem} (DRCFJSP). 
+\end{itemize}
+
+U DRCFJSP problemu na raspolaganju je skup od $n$ nezavisnih poslova $J = \left\{J_1, J_2, ..., J_n\right\}$,
+zatim skup od $m$ strojeva $M = \left\{M_1, M_2, ..., M_m\right\}$, i skup od $l$ radnika $W = \left\{W_1, W_2, ..., W_l\right\}$.
+Svaki posao ima $r$ operacija $\left\{O_{i,1}, O_{i,2}, ..., O_{i,r}\right\}$ Svakim strojem $M_i$
+mora upravljati neki radnik iz skupa $W$.
+
+Problem naveden u drugom poglavlju mogao bi se prikazati kao DRCFJSP problem na način da
+ljude promatramo kao strojeve, a radnike kao robote uz uvijet da jedan radnik
+može upravljati samo onim strojevima koji obavljaju operacije koje pripadaju
+poslu za koji je radnik zadužen. Dakle, radnike (robote) zadužujemo
+za poslove, a ljude (strojevi) obavljaju te poslove kojima upravljaju roboti.
+Ideja definiranja dodatnog ograničenja na radnike i strojeve, odnosno
+da za svaki stroj postoji podskup radnika koji mogu raditi na tom stroju
+spomenuta je \citep{zheng2016knowledge}.
 
 \chapter{Zaključak}
+Problemi raspoređivanja pripadaju klasi NP-teških problema i mogu se rješiti
+raznim konstrukcijskim postupcima ili algoritmima koji pretražuju prostor rješenja. Ovisno
+o vrsti problema raspoređivanja odabrat će se željena metoda riješavanja.
+U ovom radu predstavljen je i formalno definiran novi problem raspoređivanja heterogene flote
+ljudi i robota u logističkim centrima.
+Također, napravljen je kratak pregled raspoređivanja i navedeni problem
+povezan je sa sličnim modelom raspoređivanja. U budućem radu predlaže se
+detaljnije istraživanje problema i metoda rješavanja navedenih u radu \citep{dhiflaoui2018dual} i
+formalno definiranje opisanog problema modelom koja se koristi u spomenutom radu.
 
 \bibliography{literatura}
 \bibliographystyle{fer}
 
 \begin{sazetak}
+Problemi raspoređivanja pripadaju klasi NP-teških problema koji se ovisno o
+zahtjevima rješavaju raznim konstrukcijskim postpucima koji koriste prikladne heuristike
+ili metaheuristikama koje pretražuju prostor rješenja. U ovom radu
+predstavljen je i formalno opisan novi industrijski problem raspoređivanja heterogene flote ljudi i robota
+u logističkim centrima koji je povezan s postojećim akademskim modelima problema raspoređivanja
+poput \textit{Dual-Resource Constrained Job shop Scheduling Problem} (DRCJSP).
 
-\kljucnerijeci{upravljanje flotom, raspoređivanje}
+\kljucnerijeci{upravljanje flotom, raspoređivanje, logistički centri, autonomni roboti}
 \end{sazetak}
 
 \engtitle{Management systems for heterogeneous fleet of humans and robots in logistic centers}
 \begin{abstract}
+Scheduling problems belong to the class of NP-hard problems. Depending on the
+problem constrains and requirements they can be solved with constructive scheduling heuristics
+or with metaheuristics that search solution space. This seminar
+introduces and formally defines new industrial problem of scheduling heterogenous fleed of
+humans and robots in logistic centers. This problem is connected with known academic models
+such as \textit{Dual-Resource Constrained Job shop Scheduling Problem} (DRCJSP).
 
-\keywords{fleet management, scheduling}
+\keywords{fleet management, scheduling, logistics centers, autonomous robots}
 \end{abstract}
 
 \end{document}
