@@ -82,7 +82,8 @@ artikala narudžbe, a odnosi se na upravljanje heterogenom flotom ljudi i robota
 Osim toga, napravit će se pregled područja i
 metoda koje rješavaju sličan problem.
 
-\chapter{Formalan opis problema}
+\chapter{Formalan opis problema raspoređivanja heterogene flote}
+\label{chap:opis}
 Heterogena flota ljudi i robota djeluje u skladištu logističkog centra i sastoji
 se od ljudi i autonomnih mobilnih robota \engl{Autonomous Mobile Robots} koji se
 mogu samostalno kretati i izbjegavati prepreke u dinamičnom okruženju. Roboti
@@ -298,6 +299,107 @@ pronaći takav raspored koji će minimizirati $\overline{T}$, odnosno
 maksimizirati $f$.
 
 \chapter{Raspoređivanje}
+Raspoređivanje je proces odlučivanja koji se redovito koristi u
+mnogim proizvodnim i uslužnim djelatnostima (npr\text{.} prijevoz i distribucija) \citep{michael2018scheduling}.
+Raspoređivanje određuje raspodjelu resursa zadacima u zadanom vremenskom
+intervalu s ciljem optimizacije jednog ili više kriterija \citep{michael2018scheduling}.
+
+Resursi (u literaturi još i \emph{sredstva} ili \emph{strojevi}) mogu predstavljati različite stvari, primjerice strojeve
+u nekom proizvodnom procesu (npr. tiskarski strojevi u tiskari), procesor na računalu
+i slično. S druge strane zadaci (u literaturi još i \emph{poslovi} ili \emph{aktivnosti}) predstavljaju
+razne operacije, kao štu su primjerice operacije u proizvodnji ili izvođenje računalnih programa.
+Resursi i zadaci su opisani različitim karakteristikama koje su bitne za raspoređivanje.
+Tako su primjerice aktivnosti opisane karakteristikama kao što su trajanje, vrijeme raspoloživosti
+aktivnosti, rok za dovršavanje aktivnosti i slično \citep{Durasevic}.
+
+Probleme raspoređivanja možemo razvrstati u nekoliko kategorija koje ovise
+o svojstvima problema. Primjerice, ako govorimo o dostupnosti informacija o
+poslovima,
+razlikujemo \emph{offline} i \emph{online} raspoređivanje. Kod \emph{offline}
+raspoređivanja sve informacije o poslovima dostupne su unaprijed, dok kod
+\emph{online} raspoređivanja informacije o poslovima dostupne su onog
+trenutka kada konkretan posao uđe u sustav. S druge strane, probleme
+raspoređivanja možemo razlikovati prema tome kada je raspored napravljen, pa
+tako razlikujemo statičko i dinamičko raspoređivanje. U statičkom
+raspoređivanju cijeli raspored se izrađuje prije nego li ga sustav krene
+izvršavati, dok se u dinamičkom raspoređivanju raspoređivanju raspored
+izrađuje paralelno sa izvršavanjem sustava \citep{djurasevic2016comparison}.
+\citep{michael2018scheduling} statičke probleme naziva još i determinističkim problemima,
+a dinamičke probleme naziva još i stohastičkim problemima raspoređivanja.
+
+\section{Definicija problema i ocjena kvalitete}
+U svim problemima raspoređivanja pretpostavlja se da je
+broj poslova $n$ i broj strojeva $m$ konačan. Oznakom $j$ najčešće se
+označava posao, a s $i$ stroj. Poslovi su najčešće opisani sljedećim
+informacijama:
+\begin{itemize}
+    \item[$\bullet$] $p_{ij}$ - vrijeme izvršavanja posla $j$ na stroju $i$,
+    \item[$\bullet$] $r_{j}$ - vrijeme u kojem posao $j$ postane raspoloživ za raspoređivanje,
+    \item[$\bullet$] $d_j$ - vrijeme željenog završetka i
+    \item[$\bullet$] $w_j$ - prioritet posla.
+\end{itemize}
+Navedene oznake detaljno su dodatno objašnjene u \citep{michael2018scheduling, Durasevic}.
+
+Problem raspoređivanja opisan je trojkom $\alpha | \beta | \gamma$, gdje
+$\alpha$ predstavlja okruženje strojeva, $\beta$ predstavlja ograničenje
+izvršavanja, a $\gamma$ predstavlja kriterij minimizacije.
+\citep{michael2018scheduling} opisuje mnoga $\alpha$ okruženja strojeva od kojih
+treba istaknuti dva:
+\begin{itemize}
+    \item[$\bullet$] \textbf{Job shop} (\textit{Jm}) - Svaki od
+    $n$ zadataka ima unaprijed određeni redoslijedi izvršavanja na
+    $m$ raspoloživih strojeva. Svaki zadatak može se više od jednom
+    izvršiti na nekom stroju.
+    \item[$\bullet$] \textbf{Open shop} (\textit{Om}) - Isto kao i
+    \textit{Jm}, međutim, redosljed nije unaprijed određen.
+\end{itemize}
+
+Također, treba istaknuti jedno ograničenje izvršavanja $\beta$:
+\begin{itemize}
+   \item[$\bullet$] \textbf{podešavanje ovisno o redoslijedu} \engl{sequence dependent setup times}
+   - $s_{jk}$ predstavlja vrijeme postavljanja između poslova $j$ i $k$.
+\end{itemize}
+
+Kriterij minimizacije je uvijek funkcija vremena završetka poslova $C_j$, a vrijeme
+završetka poslova ovisi naravno o rasporedu. Jedan od kriterija minimizacije
+može npr. biti minimizacija maksimalne duljine rasporeda $C_{\max} = \max(C_1,...,C_n)$
+
+Detaljan pregled različitih modela problema, ograničenja i kriterija optimizacije može
+se pronaći u \citep{michael2018scheduling}.
+
+\section{Metode rješavanja problema raspoređivanja}
+Budući da su čak i jednostavni problemi raspoređivanja NP-teški problemi
+\citep{hart2005evolutionary}, za rješavanje ovog problema koriste
+se heurističke metode koje nam ne moraju nužno dati optimalno rješenje
+problema, ali mogu dati neko dovoljno dobro rješenje koje zadovoljava
+naše potrebe \citep{Durasevic}.
+Heurističke metode koje se koriste za rješavanje ovog problema moguće je
+podijeliti u algoritme koji pretražuju prostor rješenja i algoritme koji
+rješenje grade izravno \citep{Durasevic}.
+
+Mnogi NP-teški problemi rješavaju se pomoću raznih evolucijskih i
+populacijskih metaheuristika koje daju dovoljno dobra rješenja.
+Algoritmi koji se često primjenjuju u ove svrhe su: genetski algoritmi,
+simulirano kaljenje, optimizacija rojem čestica, mravlji algoritam,
+umjetni imunološki algoritam, tabu pretraživanje i mnogi drugi \citep{Durasevic, dhiflaoui2018dual, djurasevic2016comparison, hart2005evolutionary, costa2013hybrid}.
+Navedeni algoritmi mogu dati vrlo dobra rješenja, međutim, budući
+da je izvođenje ovakvih algoritama veoma dugotrajno onda oni neće
+biti primjereni ako je raspored potrebno izgenerirati u kratkom vremenu
+\citep{Durasevic}. Ovakvi algoritmi najprikladniji su za statička \textit{offline}
+okruženja \citep{djurasevic2016comparison}.
+
+Metode za izravnu izgradnju rješenja su prikladnije za dinamička
+\textit{online} okruženja, ali mogu također biti upotrebljeni i u
+statičkim \textit{offline} okruženjima \citep{djurasevic2016comparison}.
+Međutim, rješenja koje ove metode daju su lošija od rješenja
+koja daju složeniji postupci poput genetskih algoritama. Ove metode
+koriste heuristike koje na temelju stanja sustava određuju kako raspodijeliti
+pojedini posao. Neke od najbitnijih heuristika koje se koriste
+opisane su detaljnije u \citep{Durasevic}:
+olb, met, mct, min-min, max-min, duplex, sufferage, ljrf-sjrf, min-max i
+min-mean.
+
+\chapter{Raspoređivanje heterogene flote}
 
 \chapter{Zaključak}
 
@@ -306,13 +408,13 @@ maksimizirati $f$.
 
 \begin{sazetak}
 
-\kljucnerijeci{upravljanje flotom,raspoređivanje}
+\kljucnerijeci{upravljanje flotom, raspoređivanje}
 \end{sazetak}
 
 \engtitle{Management systems for heterogeneous fleet of humans and robots in logistic centers}
 \begin{abstract}
 
-\keywords{fleet management,scheduling}
+\keywords{fleet management, scheduling}
 \end{abstract}
 
 \end{document}
