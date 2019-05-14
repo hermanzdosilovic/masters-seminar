@@ -41,7 +41,7 @@
 
 \chapter{Uvod}
 Logistički centri su dinamički i stohastički logistički sustavi
-čija je temeljna zadaća prostornovremenska transformacija
+čija je temeljna zadaća prostorno-vremenska transformacija
 dobara koja se odvija u procesima: (1) transporta, pregrupiranja i skladištenja gdje
 su bitni procesi tokova dobara; (2) pakiranja i signiranja gdje su bitni procesi
 pomaganja tokovima dobara; (3) dostavljanja i obrada naloga gdje su bitni procesi
@@ -173,7 +173,7 @@ se da roboti u bilo kojem trenutku mogu preuzeti praznu paletu s bilo koje pozic
 Također, pretpostavlja se da roboti u bilo kojem trenutku mogu odložiti punu paletu na bilo
 koju poziciju $D_i$. Uz skupove $P$ i $D$, oznake $T_p$ i $T_d$ označavaju
 vrijeme koje je potrebno da robot preuzme, odnosno odloži paletu s
-odgovarajuće pozicije.
+odgovarajuće pozicije jednom kada je došao do nje.
 
 \pagebreak
 
@@ -201,9 +201,9 @@ može se pretpostaviti da vrijedi $1 \le |O| \le 100$.
 
 Nakon ovako definiranih narudžbi uvode se još dvije oznake:
 \begin{itemize}
-    \item[$\bullet$] $R_{i}^{o}$ ($R_{i}^{o} \in [-1, 0, 1, ..., |O| - 1]$) - označava koju narudžbu
+    \item[$\bullet$] $RO_{i}$ ($RO_{i} \in [-1, 0, 1, ..., |O| - 1]$) - označava koju narudžbu
                      robot $R_i$ trenutno izvršava ($-1$ ako ne izvršava niti jednu).
-    \item[$\bullet$] $R_{i}^{p}$ ($R_{i}^{p} \in \left\{0, 1, 2\right\}$) - označava status palete
+    \item[$\bullet$] $RP_{i}$ ($RP_{i} \in \left\{0, 1, 2\right\}$) - označava status palete
                      koja se nalazi na robotu ($0$ ako robot ne nosi paletu, $1$ ako nosi praznu paletu, $2$ ako nosi paletu s teretom).
 \end{itemize}
 
@@ -212,7 +212,7 @@ Stanje skladišta može se opisati sljedećim varijablama:
 \begin{itemize}
     \item[$\bullet$] skup svih pozicija za preuzimanje praznih paleta $P$ i odlaganje punih paleta $D$,
     \item[$\bullet$] vrijeme $T_p$ i $T_d$,
-    \item[$\bullet$] skup svih robota $R$ i odgovarajućih vrijednosti $R_{i}^{o}$ i $R_{i}^{p}$ za svakog robota,
+    \item[$\bullet$] skup svih robota $R$ i odgovarajućih vrijednosti $RO_{i}$ i $RP_{i}$ za svakog robota,
     \item[$\bullet$] skup svih ljudi $M$,
     \item[$\bullet$] skup svih artikala $I$,
     \item[$\bullet$] skup svih narudžbi $O$ koje je još potrebno izvršiti,
@@ -280,7 +280,7 @@ se broj narudžbi i pripadajući artikli nisu promjenili.
 \section{Očekivani izlazni podaci}
 Od sustava se očekuje da za svakog robota odredi narudžbe koje će izvršiti. Odluka sustava mora biti
 takva da svaka narudžba ima dodjeljenog robota koji će ju izvršiti. Osim toga, od sustava se očekuje
-da za svakog čovjeka odredi koji će artikl staviti i na kojeg robota. Odluka sustava mora biti
+da za svaki artikl odredi koji čovjek će ga staviti na pripadajućeg robota. Odluka sustava mora biti
 takva da svaki artikl u svakoj narudžbi ima dodjeljenog čovjeka koji će taj artikl staviti na robota.
 U težoj inačici problema potrebno je odrediti i redoslijed kojim
 će robot prikupiti artikle neke narudžbe.
