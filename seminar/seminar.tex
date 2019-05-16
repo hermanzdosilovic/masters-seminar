@@ -404,7 +404,7 @@ U radu \citep{dhiflaoui2018dual} spomenuta su još dva modela problema raspoređ
 bi se mogli povezati s problemom opisanim u drugom poglavlju:
 \begin{itemize}
     \item[$\bullet$] \textbf{Dual-Resource Constrained Job shop Scheduling problem} (DRCJSP) i,
-    \item[$\bullet$] \textbf{Dual-Resource Constrained Flexible Job shop Scheduling problem} (DRCFJSP). 
+    \item[$\bullet$] \textbf{Dual-Resource Constrained Flexible Job shop Scheduling problem} (DRCFJSP).
 \end{itemize}
 
 U DRCFJSP problemu na raspolaganju je skup od $n$ nezavisnih poslova $J = \left\{J_1, J_2, ..., J_n\right\}$,
@@ -412,14 +412,11 @@ zatim skup od $m$ strojeva $M = \left\{M_1, M_2, ..., M_m\right\}$, i skup od $l
 Svaki posao ima $r$ operacija $\left\{O_{i,1}, O_{i,2}, ..., O_{i,r}\right\}$ Svakim strojem $M_i$
 mora upravljati neki radnik iz skupa $W$.
 
-Problem naveden u drugom poglavlju mogao bi se prikazati kao DRCFJSP problem na način da
-ljude promatramo kao strojeve, a radnike kao robote uz uvijet da jedan radnik
-može upravljati samo onim strojevima koji obavljaju operacije koje pripadaju
-poslu za koji je radnik zadužen. Dakle, radnike (robote) zadužujemo
-za poslove, a ljude (strojevi) obavljaju te poslove kojima upravljaju roboti.
-Ideja definiranja dodatnog ograničenja na radnike i strojeve, odnosno
-da za svaki stroj postoji podskup radnika koji mogu raditi na tom stroju
-spomenuta je \citep{zheng2016knowledge}.
+Problem naveden u drugom poglavlju mogao bi se prikazati kao DRCFJSP
+problem na način da narudžbe prikazujemo kao ljude, operacije poslova
+kao artikle, strojeve kao mjesta gdje se artikli nalaze, a ljude kao radnike.
+Budući da jedan robot u jednom trenutku može izvršavati samo jednu
+narudžbu, onda i robote možemo gledati kao poslove.
 
 \chapter{Zaključak}
 Problemi raspoređivanja pripadaju klasi NP-teških problema i mogu se rješiti
