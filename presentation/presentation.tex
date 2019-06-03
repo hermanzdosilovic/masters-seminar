@@ -116,6 +116,11 @@ O_k = \left\{ (i, t_{i})\ |\ i \in 2^{\left\{0, 1, ..., |I|-1\right\}}\backslash
 \begin{frame}
 \frametitle{Formalan opis problema raspoređivanja heterogene flote}
 \framesubtitle{Opis stanja skladišta}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=8.5cm]{images/state.jpg}
+    \caption{Vizualni primjer stanja skladišta.}
+\end{figure}
 \end{frame}
 
 \subsection{Ulazni podaci}
@@ -187,7 +192,7 @@ informacijama:
 \end{itemize}
 \end{frame}
 
-\subsection{Metode rješavanje problema raspoređivanja}
+\subsection{Metode rješavanja problema raspoređivanja}
 \begin{frame}
 \frametitle{Raspoređivanje}
 \framesubtitle{Metode rješavanja problema raspoređivanja}
@@ -211,12 +216,25 @@ informacijama:
 U DRCFJSP problemu na raspolaganju je skup od $n$ nezavisnih poslova $J = \left\{J_1, J_2, ..., J_n\right\}$,
 zatim skup od $m$ strojeva $M = \left\{M_1, M_2, ..., M_m\right\}$, i skup od $l$ radnika $W = \left\{W_1, W_2, ..., W_l\right\}$.
 Svaki posao ima $r$ operacija $\left\{O_{i,1}, O_{i,2}, ..., O_{i,r}\right\}$ Svakim strojem $M_i$
-mora upravljati neki radnik iz skupa $W$
+mora upravljati neki radnik iz skupa $W$.
+
+\begin{itemize}
+    \item Narudžbe prikazujemo kao ljude.
+    \item Operacije prikazujemo poslova kao artikle.
+    \item Strojeve prikazujemo kao mjesta gdje se artikli nalaze.
+    \item Ljude prikazujemo kao radnike.
+\end{itemize}
+
 \end{frame}
 
 \section{Zaključak}
 \begin{frame}
 \frametitle{Zaključak}
+\begin{itemize}
+    \item NP-teški problemi.
+    \item Ovisno o vrsti problema odabrat će se željena metoda raspoređivanja.
+    \item Opisan je i formalno definiran novi problem koji je povezan s DRCFJSP problemom.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
